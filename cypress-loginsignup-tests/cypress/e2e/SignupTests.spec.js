@@ -35,8 +35,10 @@ describe('User Signup Tests on Automation Exercise', () => {
             phoneNumber: randomPhoneNumber
         };
 
-        cy.signup(userDetails);
+        cy.xpath(locators.signupLoginButton).click();
 
+
+        cy.signup(userDetails);
         cy.xpath(locators.loggedinAsTab, { timeout: 10000 }).should('contain', randomFirstName).and('be.visible');
     });
 
@@ -68,8 +70,9 @@ describe('User Signup Tests on Automation Exercise', () => {
             phoneNumber: randomPhoneNumber
         };
 
-        cy.signup(userDetails);
+        cy.xpath(locators.signupLoginButton).click();
 
+        cy.signup(userDetails);
         cy.xpath(locators.loggedinAsTab, { timeout: 10000 }).should('contain', randomFirstName).and('be.visible');
     });
 
@@ -81,7 +84,7 @@ describe('User Signup Tests on Automation Exercise', () => {
         cy.xpath(locators.emailSignupInputField).type('tatsenko.tetiana4@gmail.com');
         cy.xpath(locators.signupButton).click();
 
-        cy.xpath("//p[normalize-space()='Email Address already exist!']", { timeout: 10000 }).should('be.visible');
+        cy.xpath(locators.emailAlreadyExistMessage).should('contain', 'Email Address already exist!').and('be.visible');
     });
 
     it('signup user with invalid email format', () => {
@@ -92,6 +95,6 @@ describe('User Signup Tests on Automation Exercise', () => {
         cy.xpath(locators.emailSignupInputField).type('tatsenko.tetiana4@gmail');
         cy.xpath(locators.signupButton).click();
         
-        cy.xpath("//p[normalize-space()='Email format is incorrect']", { timeout: 10000 }).should('be.visible');
+        cy.xpath(locators.emailFormatIsIncorrect).should('contain', 'Email format is incorrect!').and('be.visible'); // this error message I made as an example as there is no such message in realization
     });
 });

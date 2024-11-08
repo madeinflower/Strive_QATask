@@ -35,11 +35,12 @@ export const locators = {
   companyInputField: "//input[@id='company']",
   addressInputField: "//input[@id='address1']",
   countryDropDown: "//select[@id='country']",
-  stateInputField: "//select[@id='state']", // Corrected from country to state
+  stateInputField: "//input[@id='state']",
   cityInputField: "//input[@id='city']",
   zipCodeInputField: "//input[@id='zipcode']",
   mobileNumberInputField: "//input[@id='mobile_number']",
   termsAndConditionsCheckBox: "//input[@id='checkbox2']",
   createAccountButton: "//button[normalize-space()='Create Account']",
-  emailAlreadyExistMessage: "//p[normalize-space()='Email Address already exist!']"
+  emailAlreadyExistMessage: "//p[normalize-space()='Email Address already exist!']",
+  emailFormatIsIncorrect: "//p[normalize-space()='Email format is incorrect']"
 };
